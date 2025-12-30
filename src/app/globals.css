@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@theme {
+  --color-clinical-white: #F8FAFC;
+  --color-medical-teal: #0D9488;
+  --color-surgical-orange: #F97316;
+  --font-manrope: var(--font-manrope);
+}
+
+/* Base styles for smooth scrolling and premium feel */
+:root {
+  --background: var(--color-clinical-white);
+  --foreground: #0f172a;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-manrope), sans-serif;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
