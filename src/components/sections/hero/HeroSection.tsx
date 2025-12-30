@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { ArrowRight, Award, Users, BookOpen, Star } from "lucide-react";
@@ -24,8 +25,27 @@ export function HeroSection() {
         }
     };
 
+    // Fixed particle positions to avoid hydration mismatch
+    const particlePositions = [
+        { left: 15, top: 20 },
+        { left: 85, top: 35 },
+        { left: 25, top: 60 },
+        { left: 70, top: 15 },
+        { left: 45, top: 80 },
+        { left: 60, top: 45 },
+        { left: 10, top: 70 },
+        { left: 90, top: 55 },
+        { left: 35, top: 25 },
+        { left: 55, top: 90 },
+        { left: 20, top: 40 },
+        { left: 75, top: 65 },
+        { left: 40, top: 10 },
+        { left: 65, top: 75 },
+        { left: 30, top: 50 },
+    ];
+
     return (
-        <section className="relative min-h-screen flex items-center overflow-hidden bg-clinical-white pt-20">
+        <section className="relative min-h-screen flex items-start overflow-hidden bg-clinical-white pt-20 md:pt-28 lg:pt-36">
             {/* Animated Background Elements */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 {/* Gradient Orbs */}
@@ -47,22 +67,22 @@ export function HeroSection() {
                 />
 
                 {/* Floating Particles */}
-                {[...Array(15)].map((_, i) => (
+                {particlePositions.map((pos, i) => (
                     <motion.div
                         key={i}
                         className="absolute w-1 h-1 bg-medical-teal/20 rounded-full"
                         style={{
-                            left: `${Math.random() * 100}%`,
-                            top: `${Math.random() * 100}%`,
+                            left: `${pos.left}%`,
+                            top: `${pos.top}%`,
                         }}
                         animate={{
                             y: [0, -30, 0],
                             opacity: [0, 1, 0],
                         }}
                         transition={{
-                            duration: 3 + Math.random() * 2,
+                            duration: 3 + (i % 3),
                             repeat: Infinity,
-                            delay: Math.random() * 2,
+                            delay: (i % 5) * 0.4,
                         }}
                     />
                 ))}
@@ -144,23 +164,22 @@ export function HeroSection() {
                         {/* CTA Buttons */}
                         <motion.div variants={fadeUpVariant} className="flex flex-col sm:flex-row gap-4">
                             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                                <Button
-                                    size="lg"
-                                    className="group relative overflow-hidden bg-medical-teal hover:bg-[#FE9E31] transition-all duration-300"
+                                <Link
+                                    href="/#diferenciais"
+                                    className="inline-flex items-center justify-center h-14 px-8 text-lg font-medium rounded-lg bg-medical-teal text-white hover:bg-[#FE9E31] transition-all duration-300 relative overflow-hidden group w-full sm:w-auto shadow-sm"
                                 >
                                     <span className="relative z-10">Conhecer os cursos</span>
                                     <ArrowRight className="w-5 h-5 ml-2 relative z-10 group-hover:translate-x-1 transition-transform duration-300" />
                                     <div className="absolute inset-0 bg-gradient-to-r from-[#FE9E31] to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                                </Button>
+                                </Link>
                             </motion.div>
                             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                                <Button
-                                    variant="outline"
-                                    size="lg"
-                                    className="border-slate-300 hover:border-[#FE9E31] hover:text-[#FE9E31] hover:shadow-lg hover:shadow-[#FE9E31]/20 transition-all duration-300"
+                                <Link
+                                    href="/#cadastro"
+                                    className="inline-flex items-center justify-center h-14 px-8 text-lg font-medium rounded-lg border border-slate-300 bg-transparent text-slate-700 hover:border-[#FE9E31] hover:text-[#FE9E31] hover:bg-slate-50 hover:shadow-lg hover:shadow-[#FE9E31]/20 transition-all duration-300 w-full sm:w-auto"
                                 >
-                                    Falar com consultor
-                                </Button>
+                                    Quero fazer parte
+                                </Link>
                             </motion.div>
                         </motion.div>
                     </motion.div>

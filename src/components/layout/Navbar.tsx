@@ -10,9 +10,10 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
     { name: "Início", href: "/" },
-    { name: "Cursos", href: "/cursos" },
-    { name: "Sobre Nós", href: "/sobre" },
-    { name: "Contato", href: "/contato" },
+    { name: "Diferenciais", href: "/#diferenciais" },
+    { name: "Para Quem", href: "/#para-quem" },
+    { name: "Estrutura", href: "/#formato" },
+    { name: "Investimento", href: "/#investimento" },
 ];
 
 export function Navbar() {
@@ -62,7 +63,7 @@ export function Navbar() {
                 className={cn(
                     "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b",
                     scrolled
-                        ? "bg-clinical-white/90 backdrop-blur-md border-slate-200 shadow-sm py-4"
+                        ? "bg-white border-b border-slate-200 shadow-sm py-4"
                         : "bg-transparent border-transparent py-6"
                 )}
             >
@@ -92,9 +93,12 @@ export function Navbar() {
                                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#FE9E31] group-hover:w-full transition-all duration-300" />
                             </Link>
                         ))}
-                        <Button variant="outline" size="sm" className="hover:border-[#FE9E31] hover:text-[#FE9E31] transition-all duration-300">
-                            Área do Aluno
-                        </Button>
+                        <Link
+                            href="/#cadastro"
+                            className="inline-flex items-center justify-center rounded-lg font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ring-offset-clinical-white border border-slate-200 bg-transparent text-slate-600 h-9 px-4 text-sm hover:border-[#FE9E31] hover:text-[#FE9E31] hover:bg-slate-50 transition-all duration-300"
+                        >
+                            Inscreva-se
+                        </Link>
                     </div>
 
                     {/* Mobile Menu Toggle */}
@@ -130,10 +134,14 @@ export function Navbar() {
                                     </motion.div>
                                 ))}
                                 <motion.div variants={itemVariants} className="pt-4">
-                                    <Button className="w-full justify-between">
-                                        Área do Aluno
+                                    <Link
+                                        href="/#cadastro"
+                                        onClick={() => setIsOpen(false)}
+                                        className="inline-flex items-center justify-between w-full h-11 px-6 rounded-lg font-medium bg-medical-teal text-white hover:bg-teal-700 transition-colors shadow-sm"
+                                    >
+                                        Inscreva-se
                                         <ChevronRight size={16} />
-                                    </Button>
+                                    </Link>
                                 </motion.div>
                             </div>
                         </motion.div>

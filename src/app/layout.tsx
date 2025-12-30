@@ -28,7 +28,10 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="pt-BR" className="scroll-smooth">
-            <body className={cn(manrope.variable, "antialiased min-h-screen bg-clinical-white text-slate-900")}>
+            <body
+                className={cn(manrope.variable, "antialiased min-h-screen bg-clinical-white text-slate-900")}
+                suppressHydrationWarning
+            >
                 <Navbar />
                 {children}
             </body>
