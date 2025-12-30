@@ -45,7 +45,7 @@ export function HeroSection() {
     ];
 
     return (
-        <section className="relative min-h-screen flex items-start overflow-hidden bg-clinical-white pt-20 md:pt-28 lg:pt-36">
+        <section className="relative min-h-screen flex items-start bg-clinical-white pt-36 md:pt-28 lg:pt-36 z-20">
             {/* Animated Background Elements */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 {/* Gradient Orbs */}
@@ -235,7 +235,7 @@ export function HeroSection() {
 
                             {/* Floating Credential Badges with Enhanced Design */}
                             <motion.div
-                                className="absolute top-12 -left-6 backdrop-blur-xl bg-white/95 rounded-2xl p-5 shadow-2xl border border-white/50"
+                                className="absolute top-[60%] -left-2 md:top-12 md:-left-6 backdrop-blur-xl bg-white/95 rounded-2xl p-4 md:p-5 shadow-2xl border border-white/50"
                                 whileHover={{ scale: 1.05, y: -5 }}
                                 transition={{ duration: 0.3 }}
                                 style={{
@@ -243,18 +243,18 @@ export function HeroSection() {
                                 }}
                             >
                                 <div className="flex items-center gap-3">
-                                    <div className="w-14 h-14 rounded-full bg-gradient-to-br from-medical-teal to-teal-600 flex items-center justify-center shadow-lg">
-                                        <Award className="w-7 h-7 text-white" />
+                                    <div className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-medical-teal to-teal-600 flex items-center justify-center shadow-lg">
+                                        <Award className="w-5 h-5 md:w-7 md:h-7 text-white" />
                                     </div>
                                     <div>
-                                        <p className="text-xs text-slate-500 font-semibold uppercase tracking-wider">Certificação</p>
-                                        <p className="text-base font-bold text-slate-900">CRMV Ativo</p>
+                                        <p className="text-[10px] md:text-xs text-slate-500 font-semibold uppercase tracking-wider">Certificação</p>
+                                        <p className="text-sm md:text-base font-bold text-slate-900">CRMV Ativo</p>
                                     </div>
                                 </div>
                             </motion.div>
 
                             <motion.div
-                                className="absolute bottom-12 -right-6 backdrop-blur-xl bg-white/95 rounded-2xl p-5 shadow-2xl border border-white/50"
+                                className="hidden md:block absolute bottom-20 -right-2 md:bottom-12 md:-right-6 backdrop-blur-xl bg-white/95 rounded-2xl p-4 md:p-5 shadow-2xl border border-white/50"
                                 whileHover={{ scale: 1.05, y: -5 }}
                                 transition={{ duration: 0.3 }}
                                 style={{
@@ -262,12 +262,12 @@ export function HeroSection() {
                                 }}
                             >
                                 <div className="flex items-center gap-3">
-                                    <div className="w-14 h-14 rounded-full bg-gradient-to-br from-surgical-orange to-orange-600 flex items-center justify-center shadow-lg">
-                                        <Star className="w-7 h-7 text-white fill-current" />
+                                    <div className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-surgical-orange to-orange-600 flex items-center justify-center shadow-lg">
+                                        <Star className="w-5 h-5 md:w-7 md:h-7 text-white fill-current" />
                                     </div>
                                     <div>
-                                        <p className="text-xs text-slate-500 font-semibold uppercase tracking-wider">Experiência</p>
-                                        <p className="text-base font-bold text-slate-900">15+ Anos</p>
+                                        <p className="text-[10px] md:text-xs text-slate-500 font-semibold uppercase tracking-wider">Experiência</p>
+                                        <p className="text-sm md:text-base font-bold text-slate-900">15+ Anos</p>
                                     </div>
                                 </div>
                             </motion.div>
