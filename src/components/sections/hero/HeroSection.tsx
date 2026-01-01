@@ -235,7 +235,7 @@ export function HeroSection() {
 
                             {/* Floating Credential Badges with Enhanced Design */}
                             <motion.div
-                                className="absolute top-[60%] -left-2 md:top-12 md:-left-6 backdrop-blur-xl bg-white/95 rounded-2xl p-4 md:p-5 shadow-2xl border border-white/50"
+                                className="absolute top-[60%] -left-2 md:top-12 md:-left-6 backdrop-blur-xl bg-white/95 rounded-2xl p-4 md:p-5 shadow-2xl border border-white/50 group"
                                 whileHover={{ scale: 1.05, y: -5 }}
                                 transition={{ duration: 0.3 }}
                                 style={{
@@ -251,10 +251,16 @@ export function HeroSection() {
                                         <p className="text-sm md:text-base font-bold text-slate-900">{t.hero.badges.crmv}</p>
                                     </div>
                                 </div>
+                                {/* Tooltip on hover */}
+                                <div className="absolute -bottom-16 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                                    <div className="bg-slate-900 text-white text-xs px-3 py-2 rounded-lg whitespace-nowrap shadow-xl">
+                                        Especialista Diplomado CBCAV
+                                    </div>
+                                </div>
                             </motion.div>
 
                             <motion.div
-                                className="hidden md:block absolute bottom-20 -right-2 md:bottom-12 md:-right-6 backdrop-blur-xl bg-white/95 rounded-2xl p-4 md:p-5 shadow-2xl border border-white/50"
+                                className="hidden md:block absolute bottom-20 -right-2 md:bottom-12 md:-right-6 backdrop-blur-xl bg-white/95 rounded-2xl p-4 md:p-5 shadow-2xl border border-white/50 group"
                                 whileHover={{ scale: 1.05, y: -5 }}
                                 transition={{ duration: 0.3 }}
                                 style={{
@@ -268,6 +274,12 @@ export function HeroSection() {
                                     <div>
                                         <p className="text-[10px] md:text-xs text-slate-500 font-semibold uppercase tracking-wider">{t.hero.badges.experience}</p>
                                         <p className="text-sm md:text-base font-bold text-slate-900">{t.hero.badges.years}</p>
+                                    </div>
+                                </div>
+                                {/* Tooltip on hover */}
+                                <div className="absolute -bottom-16 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                                    <div className="bg-slate-900 text-white text-xs px-3 py-2 rounded-lg whitespace-nowrap shadow-xl">
+                                        PhD UFMG | Professor Internacional
                                     </div>
                                 </div>
                             </motion.div>

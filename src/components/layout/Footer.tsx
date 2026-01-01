@@ -20,7 +20,7 @@ export function Footer() {
                             </span>
                         </Link>
                         <p className="text-sm leading-relaxed mb-6">
-                            Elevando o padrão da cirurgia veterinária através de educação prática de excelência e tecnologia de ponta.
+                            Formação avançada em cirurgia veterinária sob coordenação técnica especializada. Excelência através da prática supervisionada.
                         </p>
                         <div className="flex gap-4">
                             <SocialLink icon={Instagram} href="#" />
