@@ -21,6 +21,8 @@ export const metadata: Metadata = {
 
 import { Navbar } from "@/components/layout/Navbar";
 
+import { LanguageProvider } from "@/contexts/LanguageContext";
+
 export default function RootLayout({
     children,
 }: Readonly<{
@@ -32,8 +34,10 @@ export default function RootLayout({
                 className={cn(manrope.variable, "antialiased min-h-screen bg-clinical-white text-slate-900")}
                 suppressHydrationWarning
             >
-                <Navbar />
-                {children}
+                <LanguageProvider>
+                    <Navbar />
+                    {children}
+                </LanguageProvider>
             </body>
         </html>
     );

@@ -5,8 +5,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { ArrowRight, Award, Users, BookOpen, Star } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export function HeroSection() {
+    const { t } = useLanguage();
+
     const fadeUpVariant = {
         hidden: { opacity: 0, y: 30 },
         visible: {
@@ -112,17 +115,17 @@ export function HeroSection() {
                         <motion.div variants={fadeUpVariant} className="inline-flex">
                             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surgical-orange/10 border border-surgical-orange/20 text-surgical-orange">
                                 <Star className="w-4 h-4 fill-current" />
-                                <span className="text-sm font-semibold uppercase tracking-wider">Excelência Veterinária</span>
+                                <span className="text-sm font-semibold uppercase tracking-wider">{t.hero.badge}</span>
                             </div>
                         </motion.div>
 
                         {/* Main Title */}
                         <motion.div variants={fadeUpVariant} className="space-y-4">
                             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight">
-                                <span className="text-slate-900">Formação Avançada em</span>
+                                <span className="text-slate-900">{t.hero.title_prefix}</span>
                                 <br />
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-medical-teal to-teal-600">
-                                    Cirurgia Veterinária
+                                    {t.hero.title_suffix}
                                 </span>
                             </h1>
                         </motion.div>
@@ -132,8 +135,7 @@ export function HeroSection() {
                             variants={fadeUpVariant}
                             className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-xl"
                         >
-                            Domine as técnicas cirúrgicas mais complexas com nossa metodologia exclusiva.
-                            Teoria e prática alinhadas para elevar seu nível profissional.
+                            {t.hero.subtitle}
                         </motion.p>
 
                         {/* Stats Grid */}
@@ -143,21 +145,21 @@ export function HeroSection() {
                                     <Users className="w-5 h-5" />
                                     <p className="text-3xl font-bold">500+</p>
                                 </div>
-                                <p className="text-sm text-slate-500 font-medium">Alunos Formados</p>
+                                <p className="text-sm text-slate-500 font-medium">{t.hero.stats.students}</p>
                             </div>
                             <div className="space-y-1">
                                 <div className="flex items-center gap-2 text-medical-teal">
                                     <BookOpen className="w-5 h-5" />
                                     <p className="text-3xl font-bold">15+</p>
                                 </div>
-                                <p className="text-sm text-slate-500 font-medium">Cursos Ativos</p>
+                                <p className="text-sm text-slate-500 font-medium">{t.hero.stats.courses}</p>
                             </div>
                             <div className="space-y-1">
                                 <div className="flex items-center gap-2 text-medical-teal">
                                     <Award className="w-5 h-5" />
                                     <p className="text-3xl font-bold">98%</p>
                                 </div>
-                                <p className="text-sm text-slate-500 font-medium">Satisfação</p>
+                                <p className="text-sm text-slate-500 font-medium">{t.hero.stats.satisfaction}</p>
                             </div>
                         </motion.div>
 
@@ -168,7 +170,7 @@ export function HeroSection() {
                                     href="/#diferenciais"
                                     className="inline-flex items-center justify-center h-14 px-8 text-lg font-medium rounded-lg bg-medical-teal text-white hover:bg-[#FE9E31] transition-all duration-300 relative overflow-hidden group w-full sm:w-auto shadow-sm"
                                 >
-                                    <span className="relative z-10">Conhecer os cursos</span>
+                                    <span className="relative z-10">{t.hero.cta_primary}</span>
                                     <ArrowRight className="w-5 h-5 ml-2 relative z-10 group-hover:translate-x-1 transition-transform duration-300" />
                                     <div className="absolute inset-0 bg-gradient-to-r from-[#FE9E31] to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                                 </Link>
@@ -178,7 +180,7 @@ export function HeroSection() {
                                     href="/#cadastro"
                                     className="inline-flex items-center justify-center h-14 px-8 text-lg font-medium rounded-lg border border-slate-300 bg-transparent text-slate-700 hover:border-[#FE9E31] hover:text-[#FE9E31] hover:bg-slate-50 hover:shadow-lg hover:shadow-[#FE9E31]/20 transition-all duration-300 w-full sm:w-auto"
                                 >
-                                    Quero fazer parte
+                                    {t.hero.cta_secondary}
                                 </Link>
                             </motion.div>
                         </motion.div>
@@ -210,8 +212,6 @@ export function HeroSection() {
                                 }}
                                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
                             />
-
-
 
                             {/* Main Photo Frame - Full Screen with Shadow */}
                             <div className="relative h-full rounded-3xl overflow-hidden">
@@ -247,8 +247,8 @@ export function HeroSection() {
                                         <Award className="w-5 h-5 md:w-7 md:h-7 text-white" />
                                     </div>
                                     <div>
-                                        <p className="text-[10px] md:text-xs text-slate-500 font-semibold uppercase tracking-wider">Certificação</p>
-                                        <p className="text-sm md:text-base font-bold text-slate-900">CRMV Ativo</p>
+                                        <p className="text-[10px] md:text-xs text-slate-500 font-semibold uppercase tracking-wider">{t.hero.badges.certification}</p>
+                                        <p className="text-sm md:text-base font-bold text-slate-900">{t.hero.badges.crmv}</p>
                                     </div>
                                 </div>
                             </motion.div>
@@ -266,8 +266,8 @@ export function HeroSection() {
                                         <Star className="w-5 h-5 md:w-7 md:h-7 text-white fill-current" />
                                     </div>
                                     <div>
-                                        <p className="text-[10px] md:text-xs text-slate-500 font-semibold uppercase tracking-wider">Experiência</p>
-                                        <p className="text-sm md:text-base font-bold text-slate-900">15+ Anos</p>
+                                        <p className="text-[10px] md:text-xs text-slate-500 font-semibold uppercase tracking-wider">{t.hero.badges.experience}</p>
+                                        <p className="text-sm md:text-base font-bold text-slate-900">{t.hero.badges.years}</p>
                                     </div>
                                 </div>
                             </motion.div>
