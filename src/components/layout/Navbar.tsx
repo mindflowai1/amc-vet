@@ -153,20 +153,8 @@ export function Navbar() {
                         </Link>
                     </div>
 
-                    {/* Mobile Menu Toggle & Languages */}
+                    {/* Mobile Menu Toggle */}
                     <div className="flex items-center gap-4 md:hidden z-50">
-                        {/* Mobile Language Cycle Button */}
-                        <button
-                            onClick={() => {
-                                const nextLang = language === 'pt' ? 'en' : language === 'en' ? 'es' : 'pt';
-                                setLanguage(nextLang);
-                            }}
-                            className="flex items-center gap-1.5 p-1 px-2 rounded-full bg-slate-50 border border-slate-200 active:scale-95 transition-transform"
-                        >
-                            <img src={currentFlag.src} alt={currentFlag.alt} className="w-5 h-5 rounded-full object-cover" />
-                            <span className="text-xs font-bold text-slate-600 uppercase">{currentFlag.code}</span>
-                        </button>
-
                         <button
                             onClick={() => setIsOpen(!isOpen)}
                             className="p-2 text-slate-600 hover:text-medical-teal transition-colors"
@@ -199,6 +187,31 @@ export function Navbar() {
                                         </Link>
                                     </motion.div>
                                 ))}
+
+                                {/* Mobile Language Selector */}
+                                <motion.div variants={itemVariants} className="py-2 border-b border-slate-100">
+                                    <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3">Idioma</p>
+                                    <div className="flex items-center gap-3">
+                                        {flags.map((flag) => (
+                                            <button
+                                                key={flag.code}
+                                                onClick={() => {
+                                                    setLanguage(flag.code as any);
+                                                    setIsOpen(false);
+                                                }}
+                                                className={cn(
+                                                    "flex items-center gap-2 px-3 py-2 rounded-lg transition-all duration-300 border",
+                                                    language === flag.code
+                                                        ? "bg-medical-teal/10 border-medical-teal text-medical-teal"
+                                                        : "bg-slate-50 border-slate-100 text-slate-600 hover:bg-slate-100"
+                                                )}
+                                            >
+                                                <img src={flag.src} alt={flag.alt} className="w-5 h-5 rounded-full object-cover" />
+                                                <span className="text-sm font-medium">{flag.code.toUpperCase()}</span>
+                                            </button>
+                                        ))}
+                                    </div>
+                                </motion.div>
                                 <motion.div variants={itemVariants} className="pt-4">
                                     <Link
                                         href="/#cadastro"
